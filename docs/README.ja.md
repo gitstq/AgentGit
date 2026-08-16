@@ -13,6 +13,7 @@ AI コーディングエージェントが行うすべての変更を追跡し�
 ![Dependencies](https://img.shields.io/badge/Dependencies-0-brightgreen)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
+[![Download](https://img.shields.io/badge/⬇%20Download-v1.0.0-2ea44f?style=for-the-badge)](https://github.com/gitstq/AgentGit/releases/tag/v1.0.0)
 
 </div>
 
