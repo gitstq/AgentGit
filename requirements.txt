@@ -1,0 +1,3 @@
+# Dependencies
+# AgentGit is 100% zero-dependency — it only uses the Python standard library.
+# This file intentionally stays empty. Nothing to install.

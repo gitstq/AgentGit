@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentgit"
+version = "1.0.0"
+description = "AgentGit — Lightweight Source Control Engine for AI Coding Agents. 零依赖、本地优先的 AI 编码代理源码控制引擎。"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "AgentGit Contributors" }]
+keywords = [
+    "ai-agents", "source-control", "snapshot", "claude-code", "codex",
+    "cursor", "version-control", "local-first", "zero-dependency",
+    "agent-tools", "devtools", "ai-coding",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.urls]
+Homepage = "https://github.com/gitstq/AgentGit"
+Repository = "https://github.com/gitstq/AgentGit"
+Documentation = "https://github.com/gitstq/AgentGit#readme"
+
+[project.scripts]
+agentgit = "agentgit.cli:main"
+
+[tool.setuptools]
+packages = ["agentgit"]
+
+[tool.setuptools.package-data]
+agentgit = ["web/*.html", "web/*.css", "web/*.js"]

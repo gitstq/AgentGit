@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentGit — Source Control for AI Agents</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <path d="M16 3 L27 9 V19 C27 24 22 28 16 29 C10 28 5 24 5 19 V9 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M11 13 L21 13 M11 17 L18 17 M11 21 L16 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AgentGit</h1>
+          <span class="brand-sub">Source Control for AI Coding Agents</span>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <div class="repo-path" id="repoPath" title="repository path">—</div>
+        <button class="btn btn-ghost" id="btnAgents" title="Detected agents">Agents</button>
+        <button class="btn btn-primary" id="btnSnapshot">New Snapshot</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Local-first · Zero-dependency · Privacy-safe</p>
+          <h2>Every change your agents make,<br><em>captured &amp; reversible.</em></h2>
+          <p class="hero-body">Snapshot the working tree, attribute changes to Claude Code, Codex, Cursor and more, then diff or revert any point in time — all on your machine.</p>
+        </div>
+        <div class="stats" id="stats">
+          <div class="stat"><span class="stat-num" id="statSnapshots">0</span><span class="stat-label">Snapshots</span></div>
+          <div class="stat"><span class="stat-num" id="statFiles">0</span><span class="stat-label">Tracked files</span></div>
+          <div class="stat"><span class="stat-num" id="statAgents">0</span><span class="stat-label">Agents</span></div>
+          <div class="stat"><span class="stat-dot" id="statClean"></span><span class="stat-label" id="statCleanLabel">—</span></div>
+        </div>
+      </section>
+
+      <div class="columns">
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Snapshot Timeline</h3>
+            <span class="muted" id="snapCount"></span>
+          </div>
+          <div class="timeline" id="timeline">
+            <div class="empty" id="timelineEmpty">No snapshots yet. Create one to begin tracking.</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>Diff &amp; Inspect</h3>
+            <span class="muted" id="diffMeta"></span>
+          </div>
+          <div class="diff" id="diffView">
+            <div class="empty">Select a snapshot to inspect its changes.</div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h3>Agent Activity</h3>
+          <span class="muted">Detected on this machine</span>
+        </div>
+        <div class="agents" id="agentsView">
+          <div class="empty">Scanning for agents…</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>AgentGit v1.0.0 · MIT License</span>
+      <span class="muted">All data stays on this device.</span>
+    </footer>
+  </div>
+
+  <!-- Snapshot modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <div class="modal">
+      <h3>Create Snapshot</h3>
+      <label for="snapAgent">Agent</label>
+      <input id="snapAgent" type="text" placeholder="e.g. Claude Code, Codex, Cursor" list="agentList">
+      <datalist id="agentList"></datalist>
+      <label for="snapMessage">Message</label>
+      <input id="snapMessage" type="text" placeholder="What changed?">
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="btnCancel">Cancel</button>
+        <button class="btn btn-primary" id="btnConfirm">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Revert modal -->
+  <div class="modal-backdrop" id="revertBackdrop" hidden>
+    <div class="modal">
+      <h3>Revert to snapshot</h3>
+      <p class="modal-body" id="revertBody">This will restore the working tree to the selected snapshot.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="btnRevertCancel">Cancel</button>
+        <button class="btn btn-danger" id="btnRevertConfirm">Revert</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
